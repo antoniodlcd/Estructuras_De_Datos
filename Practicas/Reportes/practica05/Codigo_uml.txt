@@ -1,0 +1,251 @@
+@startuml
+
+
+interface ArregloListaDatos {
++boolean vacio()
++Integer nuevo(Object valor)
++void imprimir()
++void imprimirReves()
++Integer buscar(Object valor)
++Object quitar(Object valor)
++Boolean esIdentico(Object arreglo2)
++Boolean modificar(Object valorViejo, Object valorNuevo, int cuantasVeces)
++ArregloListaInfoEstatica buscarValores(Object valor)
++Object quitar()
++void limpiar()
++Boolean agregarArreglo(Object arreglo2)
++void voltear()
++int cuantificar(Object valor)
++Boolean quitarArreglo()
++void llenar(Object valor, int numElementos)
++ArregloListaDatos copiar()
++ArregloListaDatos subArreglo(int posicionInicial, int posicionFinal)
+
++boolean sumar(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean multiplicar(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean aplicarPotencia(ArregloListaInfoEstaticaNumeros arregloEscalares)
++double productoEscalar(ArregloListaInfoEstaticaNumeros arreglo2)
++double normal2()
++double normaEuclidiana(ArregloListaInfoEstaticaNumeros arreglo2)
++double sumarArregloEstatico(ArregloListaInfoEstatica listasArreglos)
++double sumarEscalares(ArregloListaInfoEstaticaNumeros escalares)
++double sumarIndices(ArregloListaInfoEstaticaNumeros arregloIndices)
++ArregloListaInfoEstatica subArreglo(ArregloListaInfoEstaticaNumeros arregloIndices)
++boolean esOrtogonal(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean esParalelo(ArregloListaInfoEstaticaNumeros arreglo2)
+
++Boolean midificar(Object valorViejo, Object valorNuevo, int numApariciones)
++Boolean agregarArreglo(ArregloListaDatos arreglo2)
++void voltear()
++void llenar(Object valor)
++Boolean esSubArreglo(ArregloListaDatos arreglo2)
++Booelan cambiarArreglo(ArregloListaDatos arreglo2, AarregloListaDatos arreglo2Nuevos)
++Boolean retenerArreglo(ArregloListaDatos arreglo2)
++Boolean nuevo(int posicion, Object valor)
++Boolean copiarArreglo(ArregloListaDatos arreglo2)
+
+}
+
+interface VectorArregloDatos{
++boolean lleno()
++int tamanio()
++int numDatos()
++Object dato(int posicion)
++boolean modificar(Object valorViejo, Object valorNuevo)
++Boolean cambiar(int posicion, Object valor)
++Boolean modificar(ArregloListaInfoEstatica posicionesBusqueda, ArregloListaInfoEstatica valoresNuevos)
++Object quitar(int posicion)
++Boolean cambiarTamanio(int max)
+
++boolean porEscalar(Number escalar)
++boolean sumar(Number escalar)
++boolean aplicarPotencia(Number escalar)
+
+
+}
+
+class ArregloListaInfoEstatica {
+#int tamanio
+#int indiceUltimo
+#Object[] arreglo
+
++ArregloListaInfoEstatica(int max)
++boolean vacio()
++boolean lleno()
++Integer nuevo(Object valor)
++void imprimir()
++void imprimirReves()
++Integer buscar(Object valor)
++Object quitar(Object valor)
++int tamanio()
++int numDatos()
++Boolean esIdentico(Object arreglo2)
++Object dato(int posicion)
++boolean modificar(Object valorViejo, Object valorNuevo)
++Boolean modificar(Object valorViejo, Object valorNuevo, int cuantasVeces)
++Boolean cambiar(int posicion, Object valor)
++Boolean modificar(ArregloListaInfoEstatica posicionesBusqueda, ArregloListaInfoEstatica valoresNuevos)
++ArregloListaInfoEstatica buscarValores(Object valor)
++Object quitar(int posicion)
++void voltear()
++int cuantificar(Object valor)
++Boolean quitarArreglo()
++void llenar(Object valor, int numElementos)
++ArregloListaDatos copiar()
++ArregloListaDatos subArreglo(int posicionInicial, int posicionFinal)
++Boolean cambiarTamanio(int max)
+
++boolean porEscalar(Number escalar)
++boolean sumarEscalar(Number escalar)
++boolean sumar(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean multiplicar(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean aplicarPotencia(Number escalar)
++boolean aplicarPotencia(ArregloListaInfoEstaticaNumeros arregloEscalares)
++double productoEscalar(ArregloListaInfoEstaticaNumeros arreglo2)
++double normal2()
++double normaEuclidiana(ArregloListaInfoEstaticaNumeros arreglo2)
++double sumarArregloEstatico(ArregloListaInfoEstatica listasArreglos)
++double sumarEscalares(ArregloListaInfoEstaticaNumeros escalares)
++double sumarIndices(ArregloListaInfoEstaticaNumeros arregloIndices)
++ArregloListaInfoEstatica subArreglo(ArregloListaInfoEstaticaNumeros arregloIndices)
++boolean esOrtogonal(ArregloListaInfoEstaticaNumeros arreglo2)
++boolean esParalelo(ArregloListaInfoEstaticaNumeros arreglo2)
+
++Boolean nuevo(int posicion, Object valor)
++Boolean copiarArreglo(ArregloListaDatos arreglo2)
+
+}
+
+class ArregloListaInfoEstaticaNumeros {
++ArregloListaInfoEstaticaNumeros(int max)
+
++Integer buscar(Object valor) {override}
++boolean modificar(Object valorViejo, Object valorNuevo) {override}
++Integer nuevo(Object valor) {override}
++Object quitar(Object valor) {override}
+
++boolean porEscalar(Number escalar) {override}
++boolean sumarEscalar(Number escalar) {override}
++boolean sumar(ArregloListaInfoEstaticaNumeros arreglo2) {override}
++boolean multiplicar(ArregloListaInfoEstaticaNumeros arreglo2) {override}
++boolean aplicarPotencia(Number escalar) {override}
++boolean aplicarPotencia(ArregloListaInfoEstaticaNumeros arregloEscalares) {override}
++double productoEscalar(ArregloListaInfoEstaticaNumeros arreglo2) {override}
++double normal2() {override}
++double normaEuclidiana(ArregloListaInfoEstaticaNumeros arreglo2) {override}
++double sumarArregloEstatico(ArregloListaInfoEstatica listasArreglos) {override}
++double sumarEscalares(ArregloListaInfoEstaticaNumeros escalares) {override}
++double sumarIndices(ArregloListaInfoEstaticaNumeros arregloIndices) {override}
++ArregloListaInfoEstatica subArreglo(ArregloListaInfoEstaticaNumeros arregloIndices) {override}
++boolean esOrtogonal(ArregloListaInfoEstaticaNumeros arreglo2) {override}
++boolean esParalelo(ArregloListaInfoEstaticaNumeros arreglo2) {override}
+
+}
+
+class ArregloListaInfoEstaticaOrden{D
+
++ArregloListaInfoEstaticaOrden(int tamanio, TipoDeOrden orden)
++Integer nuevo(Object valor) {override}
++Integer buscar(Object valor) {override}
++Boolean modificar(Object valorViejo, Object valorNuevo, int numApariciones)
++Boolean modificar(int posición, Object valor) {override}
++Object eliminar(Object valor) {override}
++Boolean agregarArreglo(ArregloListaDatos arreglo2)
++void voltear()
++void llenar()
++ArregloDatos arregloDesordenado()
++Boolean esSubArreglo(ArregloListaDatos arreglo2)
++Boolean cambiarArreglo(ArregloListaDatos arreglo2, ArregloListaDatos arreglo2Nuevos)
++Boolean retenerArreglo(ArregloListaDatos arreglo2)
+
+}
+
+class FlujoSalida{
++{static} void mostrarConsola(String dato)
+}
+
+class PruebaArregloEstatico {
++{static} void main(String args[])
+}
+
+class PruebaEscuela{
++{Static} void main(String args[])
+}
+
+class Alumno{
+#String matricula
+#String nombre
+#int edad
+#char sexo
+
++Alumno(String mat, String nom, int age, char sex)
++String getMatricula()
++void setMatricula(String matricula)
++String getNombre()
++void setNombre(String nombre)
++int getEdad()
++void setEdad(int edad)
++char getSexo()
++void setSexo(chat sexo)
++String toStrint()
+}
+
+class Asignatura{
+#String clave
+#String nombre
+#int creditos
+
++Asignatura(String nom, String clav, int cred)
++String getClave()
++void setCalve(String clave)
++String getNombre()
++void setNombre(String nombre)
++int getCreditos()
++void setCreditos(int creditos)
++String toString()
+}
+
+class Boleta{
+#String alumno
+#ArregloListaInfoEstatica asignaturas
+#ArregloListaInfoEstatica calificaciones
+
++Boleta(String matricula, int maximoAsig)
++boolean agregarAsignatuar(Asignatura asign, double calif)
++void mostrar()
++Double promedio()
+}
+
+class Escuela{
+#String clave
+#String nombre
+#ArregloListaInfoEstatica alumnos
+#ArregloListaInfoEstatica boletas
+
++Escuela(String clave)
++boolean agregarAlumno(Alumno alumno, Boleta boleta)
++void kardex(String matricula)
+}
+
+' Relaciones
+ArregloLIstaInfoEstaticaNumeros --|> ArregloListaInfoEstatica
+ArregloLIstaInfoEstaticaOrden --|> ArregloListaInfoEstatica
+ArregloListaInfoEstatica --|> ArregloListaDatos
+ArregloListaInfoEstatica ..|> VectorArregloDatos
+
+VectorArregloDatos --|>  ArregloListaDatos
+
+ArregloListaInfoEstatica ..> FlujoSalida : utiliza
+PruebaArregloEstatico ..> FlujoSalida : utiliza
+PruebaArregloEstatico ..> ArregloListaInfoEstatica : utiliza
+
+PruebaEscuela ..> Alumno : utiliza
+PruebaEscuela ..> Asignatura : utiliza
+PruebaEscuela ..> Boleta : utiliza
+PruebaEscuela ..> Escuela : utiliza
+
+Boleta ..> FlujoSalida : utiliza
+Boleta ..> ArregloListaInfoEstatica : utiliza
+Escuela ..> ArregloListaInfoEstatica: utiliza
+
+@enduml
