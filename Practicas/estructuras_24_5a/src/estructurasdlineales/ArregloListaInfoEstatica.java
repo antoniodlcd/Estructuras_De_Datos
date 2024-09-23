@@ -220,7 +220,14 @@ public class ArregloListaInfoEstatica implements VectorArregloDatos{
     }
 
     public Object quitar() {
-        return arreglo[indiceUltimo];
+        if (vacio() == false) {
+            Object arregloEliminado = arreglo[indiceUltimo];
+            arreglo[indiceUltimo] = null;
+            indiceUltimo--;
+            return arregloEliminado;
+        } else {
+            return null;
+        }
     }
 
     public void limpiar() {

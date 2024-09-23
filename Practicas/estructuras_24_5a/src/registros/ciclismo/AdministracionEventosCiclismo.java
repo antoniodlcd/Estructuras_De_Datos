@@ -1,5 +1,7 @@
 package registros.ciclismo;
 
+import javax.naming.InitialContext;
+
 import entradasalida.FlujoSalida;
 import estructurasdlineales.ArregloListaInfoEstatica;
 import estructurasdnolineales.ArregloListaInfoEstatica3;
@@ -76,6 +78,18 @@ public class AdministracionEventosCiclismo {
         return indices;
     }
 
+    private int calcularIndiceCiclista(int claveCiclista){
+        return ciclistas.buscar(claveCiclista);
+    }
+
+    private int calcularIndiceEventos(int nombreE){
+        return eventos.buscar(nombreE);
+    }
+
+    private int calcularIndiceAnio(int anio){
+        return anios.buscar(anio);
+    }
+
     public boolean agregarKilometros(int claveCiclista, String nombreEvento, int anio, Double kms) {
         IndicesCubo indices = calcularIndices(claveCiclista, nombreEvento, anio);
         
@@ -91,34 +105,34 @@ public class AdministracionEventosCiclismo {
     }
 
     public void mostrarDatos() {
-        FlujoSalida.mostrarConsola("Datos de Ciclistas\n");
+        FlujoSalida.mostrarConsola("Datos de Ciclistas: \n");
 
         // imprimir los datos de los ciclistas
         // recorrer el arreglo de ciclistas y sacar de uno en uno
         FlujoSalida.mostrarConsola("Datos de cada ciclista: \n");
         for (int cadaCiclista = 0; cadaCiclista < ciclistas.numDatos(); cadaCiclista++) {
             Ciclista ciclistaTemporal = (Ciclista)ciclistas.dato(cadaCiclista);
-            FlujoSalida.mostrarConsola("Clave: " + ciclistaTemporal.getClaveCiclista() + "; ");
-            FlujoSalida.mostrarConsola("Nombre: " + ciclistaTemporal.getNombre() + "; ");
+            FlujoSalida.mostrarConsola("Clave: " + ciclistaTemporal.getClaveCiclista() + " ; ");
+            FlujoSalida.mostrarConsola("Nombre: " + ciclistaTemporal.getNombre() + " ; ");
             FlujoSalida.mostrarConsola("Edad: " + ciclistaTemporal.getEdad());
             FlujoSalida.mostrarConsola("\n");
         }
 
         FlujoSalida.mostrarConsola("\n");
 
-        FlujoSalida.mostrarConsola("Datos de cada evento: \n");
+        FlujoSalida.mostrarConsola("Datos del evento: \n");
 
         for (int cadaEvento = 0; cadaEvento < eventos.numDatos(); cadaEvento++) {
             Evento eventoTemporal = (Evento)eventos.dato(cadaEvento);
-            FlujoSalida.mostrarConsola("Nombre: " + eventoTemporal.getNombre() + "; ");    
-            FlujoSalida.mostrarConsola("Lugar: " + eventoTemporal.getLugar() + "; ");    
-            FlujoSalida.mostrarConsola("Fecha: " + eventoTemporal.getFecha());    
+            FlujoSalida.mostrarConsola("Nombre: " + eventoTemporal.getNombre() + " ; ");
+            FlujoSalida.mostrarConsola("Lugar: " + eventoTemporal.getLugar() + " ; ");
+            FlujoSalida.mostrarConsola("Fecha: " + eventoTemporal.getFecha());
             FlujoSalida.mostrarConsola("\n");
         }
 
         FlujoSalida.mostrarConsola("\n");
 
-        FlujoSalida.mostrarConsola("Datos de cada año: \n");
+        FlujoSalida.mostrarConsola("Datos del año: \n");
 
         for (int cadaAnio = 0; cadaAnio < anios.numDatos(); cadaAnio++) {
             Integer anioTemporal = (Integer)anios.dato(cadaAnio);
@@ -133,6 +147,38 @@ public class AdministracionEventosCiclismo {
         FlujoSalida.mostrarConsola("\n");
     }
 
-
+    //Se pide que se obtenga la informacion de los kilometros
+    //recorridos por jorge el 2010, 2011, 2012.
+    //Resp. 1:  2010: 400km
+    //          2011: 200km
+    //          2012: 343km
+    //Resp. 2:  Los kms recorridos de Jorge en 2010, 2011 y 2012 son 
     
+    public ArregloListaInfoEstatica kmsRecorridosXCiclista(int claveCiclista, ArregloListaInfoEstatica aniosPedidos){
+        //Recorremos el arreglo de aniosPedidos para calcular
+        //los kms de cada año
+        ArregloListaInfoEstatica kmsXAnio = new ArregloListaInfoEstatica(aniosPedidos.numDatos());
+        for (int cadaAnio = 0; cadaAnio < aniosPedidos.numDatos(); cadaAnio++) {
+            int anioTemp = (int)aniosPedidos.dato(cadaAnio);
+            kmsXAnio.nuevo(kmsRecorridosXAnio(claveCiclista, anioTemp));
+        }
+        return null;
+    }
+
+    //Hacer un metodo que calcule solo por un año
+    public Double kmsRecorridosXAnio(int claveCiclista, int anio){
+        Double kmsAcumulados = 0.0;
+        int indiceCiclista = calcularIndiceCiclista(claveCiclista);
+        int indiceAnio = calcularIndiceAnio(anio);
+
+        //Recorrer todas las columnas(eventos)
+        for(int cadaEventoCol = 0; cadaEventoCol < kilometros.getColumnas(); cadaEventoCol++){
+            Double kmsTemp = (Double)kilometros.dato(indiceCiclista, cadaEventoCol, indiceAnio);
+            if (kmsTemp != null) {
+                kmsAcumulados = kmsAcumulados + kmsTemp;
+            }// Si son nulos, simplemente no acumulo nada
+        }
+        return kmsAcumulados;
+    }
+
 }

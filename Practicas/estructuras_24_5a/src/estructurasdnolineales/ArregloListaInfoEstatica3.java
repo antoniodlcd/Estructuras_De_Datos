@@ -17,6 +17,56 @@ public class ArregloListaInfoEstatica3 {
         this.llenar(valor);
     }
 
+
+
+    public int getReglones() {
+        return reglones;
+    }
+
+
+
+    public void setReglones(int reglones) {
+        this.reglones = reglones;
+    }
+
+
+
+    public int getColumnas() {
+        return columnas;
+    }
+
+
+
+    public void setColumnas(int columnas) {
+        this.columnas = columnas;
+    }
+
+
+
+    public int getProfundidad() {
+        return profundidad;
+    }
+
+
+
+    public void setProfundidad(int profundidad) {
+        this.profundidad = profundidad;
+    }
+
+
+
+    public Object[][][] getArreglo() {
+        return arreglo;
+    }
+
+
+
+    public void setArreglo(Object[][][] arreglo) {
+        this.arreglo = arreglo;
+    }
+
+    
+
     public Boolean cambiar(int reng, int col, int prof, Object valor){
         if ((reng >= 0 && reng < reglones) && (col >= 0 && col < columnas) && (prof >= 0 && prof < profundidad)) {
             arreglo[reng][col][prof] = valor;

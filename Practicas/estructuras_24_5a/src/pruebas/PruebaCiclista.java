@@ -1,5 +1,7 @@
 package pruebas;
 
+import entradasalida.FlujoSalida;
+import estructurasdlineales.ArregloListaInfoEstatica;
 import registros.ciclismo.AdministracionEventosCiclismo;
 import registros.ciclismo.Ciclista;
 import registros.ciclismo.Evento;
@@ -34,5 +36,23 @@ public class PruebaCiclista {
         controlCiclista.agregarKilometros(3, "Triatlon", 2003, 45.0);
 
         controlCiclista.mostrarDatos();
+                //Se pide que se obtenga la informacion de los kilometros
+        //recorridos por jorge el 2010, 2011, 2012.
+        //Resp. 1:  2010: 400km
+        //          2011: 200km
+        //          2012: 343km
+        ArregloListaInfoEstatica aniosPedidos = new ArregloListaInfoEstatica(3);
+        aniosPedidos.nuevo(2010);
+        aniosPedidos.nuevo(2011);
+        aniosPedidos.nuevo(2012);
+        
+        //invocar a quien lo calcula
+        //le voy a pasar un ciclista(claveCIclista) y el arreglo de
+        //años que se solicitan
+        ArregloListaInfoEstatica kmsRecorridos = null;
+        kmsRecorridos = controlCiclista.kmsRecorridosXCiclista(1, aniosPedidos);
+
+        FlujoSalida.mostrarConsola("Los datos por año son: \n");
+
     }
 }

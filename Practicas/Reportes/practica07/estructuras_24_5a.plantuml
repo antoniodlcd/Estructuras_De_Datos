@@ -1,0 +1,406 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AdministracionEventosCiclismo {
+  + AdministracionEventosCiclismo(int, int, int): 
+  - calcularIndiceCiclista(int): int
+  + agregarKilometros(int, String, int, Double): boolean
+  + agregarAnios(int): boolean
+  + agregarCiclista(Ciclista): boolean
+  - calcularIndiceAnio(int): int
+  + agregarEvento(Evento): boolean
+  - calcularIndices(int, String, int): IndicesCubo
+  - calcularIndiceEventos(int): int
+  + kmsRecorridosXCiclista(int, ArregloListaInfoEstatica): ArregloListaInfoEstatica
+  + kmsRecorridosXAnio(int, int): Double
+  + mostrarDatos(): void
+}
+interface AlmacenInfo << interface >> {
+  + poner(Object): boolean
+  + lleno(): boolean
+  + quitar(): Object
+  + vacio(): boolean
+  + mostrar(): void
+}
+class Alumno {
+  + Alumno(String, String, int, char): 
+  + setEdad(int): void
+  + getMatricula(): String
+  + getEdad(): int
+  + setSexo(char): void
+  + getNombre(): String
+  + setMatricula(String): void
+  + toString(): String
+  + getSexo(): char
+  + setNombre(String): void
+}
+interface ArregloListaDatos << interface >> {
+  + normaEuclidiana(ArregloListaInfoEstaticaNumeros): Double
+  + aplicarPotencia(ArregloListaInfoEstaticaNumeros): boolean
+  + vacio(): boolean
+  + cuantificar(Object): int
+  + buscarValores(Object): ArregloListaInfoEstatica
+  + llenar(Object, int): void
+  + limpiar(): void
+  + esParalelo(ArregloListaInfoEstaticaNumeros): boolean
+  + voltear(): void
+  + normal2(): Double
+  + imprimirReves(): void
+  + esIdentico(Object): Boolean
+  + copiar(): ArregloListaDatos
+  + modificar(Object, Object, int): Boolean
+  + sumar(ArregloListaInfoEstaticaNumeros): boolean
+  + sumarArregloEstatico(ArregloListaInfoEstatica): Double
+  + nuevo(Object): Integer
+  + multiplicar(ArregloListaInfoEstaticaNumeros): boolean
+  + imprimir(): void
+  + quitar(Object): Object
+  + subArreglo(ArregloListaInfoEstaticaNumeros): ArregloListaInfoEstatica
+  + quitar(): Object
+  + subArreglo(int, int): ArregloListaDatos
+  + buscar(Object): Integer
+  + agregarArreglo(Object): Boolean
+  + sumarIndices(ArregloListaInfoEstaticaNumeros): Double
+  + esOrtogonal(ArregloListaInfoEstaticaNumeros): boolean
+  + quitarArreglo(Object): Boolean
+  + productoEscalar(ArregloListaInfoEstaticaNumeros): Double
+  + sumarEscalares(ArregloListaInfoEstaticaNumeros): Double
+}
+class ArregloListaInfoEstatica {
+  + ArregloListaInfoEstatica(int): 
+  + agregarArreglo(Object): Boolean
+  + nuevo(Object): Integer
+  + quitarArreglo(Object): Boolean
+  + cuantificar(Object): int
+  + lleno(): boolean
+  + esOrtogonal(ArregloListaInfoEstaticaNumeros): boolean
+  + voltear(): void
+  + tamanio(): int
+  + modificar(Object, Object, int): Boolean
+  + multiplicar(ArregloListaInfoEstaticaNumeros): boolean
+  + buscar(Object): Integer
+  + sumarEscalares(ArregloListaInfoEstaticaNumeros): Double
+  + cambiarTamanio(int): Boolean
+  + sumarIndices(ArregloListaInfoEstaticaNumeros): Double
+  + modificar(ArregloListaInfoEstatica, ArregloListaInfoEstatica): Boolean
+  + copiar(): ArregloListaDatos
+  + subArreglo(ArregloListaInfoEstaticaNumeros): ArregloListaInfoEstatica
+  + quitar(Object): Object
+  + quitar(int): Object
+  + normal2(): Double
+  + sumarArregloEstatico(ArregloListaInfoEstatica): Double
+  + buscarValores(Object): ArregloListaInfoEstatica
+  + quitar(): Object
+  + esParalelo(ArregloListaInfoEstaticaNumeros): boolean
+  + normaEuclidiana(ArregloListaInfoEstaticaNumeros): Double
+  + cambiar(int, Object): Boolean
+  + aplicarPotencia(ArregloListaInfoEstaticaNumeros): boolean
+  + esIdentico(Object): Boolean
+  + limpiar(): void
+  + imprimirReves(): void
+  + vacio(): boolean
+  + sumar(ArregloListaInfoEstaticaNumeros): boolean
+  + subArreglo(int, int): ArregloListaDatos
+  + productoEscalar(ArregloListaInfoEstaticaNumeros): Double
+  + aplicarPotencia(Number): boolean
+  + imprimir(): void
+  + numDatos(): int
+  + sumarEscalar(Number): boolean
+  + modificar(Object, Object): boolean
+  + porEscalar(Number): boolean
+  + dato(int): Object
+  + llenar(Object, int): void
+}
+class ArregloListaInfoEstatica2 {
+  + ArregloListaInfoEstatica2(int, int, Object): 
+  + ArregloListaInfoEstatica2(int, int): 
+  + numElementos(): Integer
+  + agregarMatrizXRenglon(ArregloListaInfoEstatica2): boolean
+  + aVectorColumna(): ArregloListaInfoEstatica2
+  + imprimirXColumnas(): void
+  + setColumnas(int): void
+  + cambiar(int, int, Object): boolean
+  + agregarRenglon(ArregloListaInfoEstatica): boolean
+  + vectorRenglon(int, Object): boolean
+  + redefinir(ArregloListaInfoEstatica2): boolean
+  + eliminarRenglon(int): boolean
+  + vectorColumna(int, Object): boolean
+  + imprimirXRenglones(): void
+  + aVectorRenglon(): ArregloListaInfoEstatica2
+  + getFilas(): int
+  + copiar(): ArregloListaInfoEstatica2
+  + dato(int, int): Object
+  + llenar(Object): void
+  + eliminarColumna(int): boolean
+  + transpuesta(): void
+  + agregarMatrizXColumna(ArregloListaInfoEstatica2): boolean
+  + esIgual(ArregloListaInfoEstatica2): boolean
+  + agregarColumna(ArregloListaInfoEstatica): boolean
+  + getColumnas(): int
+  + setFilas(int): void
+  + aMatriz3(ArregloListaInfoEstatica): ArregloListaInfoEstatica3
+}
+class ArregloListaInfoEstatica3 {
+  + ArregloListaInfoEstatica3(int, int, int, Object): 
+  + setArreglo(Object[][][]): void
+  + setColumnas(int): void
+  + dato(int, int, int): Object
+  + getArreglo(): Object[][][]
+  + imprimir2(): void
+  + setReglones(int): void
+  + getProfundidad(): int
+  + cambiar(int, int, int, Object): Boolean
+  + setProfundidad(int): void
+  + llenar(Object): void
+  + getReglones(): int
+  + imprimirXColumnas(): void
+  + getColumnas(): int
+}
+class ArregloListaInfoEstaticaNumeros {
+  + ArregloListaInfoEstaticaNumeros(int): 
+  + aplicarPotencia(ArregloListaInfoEstaticaNumeros): boolean
+  + multiplicar(ArregloListaInfoEstaticaNumeros): boolean
+  + esParalelo(ArregloListaInfoEstaticaNumeros): boolean
+  + sumarEscalar(Number): boolean
+  + quitar(Object): Object
+  + sumarArregloEstatico(ArregloListaInfoEstatica): Double
+  + normaEuclidiana(ArregloListaInfoEstaticaNumeros): Double
+  + modificar(Object, Object): boolean
+  + productoEscalar(ArregloListaInfoEstaticaNumeros): Double
+  + normal2(): Double
+  + aplicarPotencia(Number): boolean
+  + nuevo(Object): Integer
+  + sumarEscalares(ArregloListaInfoEstaticaNumeros): Double
+  + subArreglo(ArregloListaInfoEstaticaNumeros): ArregloListaInfoEstatica
+  + buscar(Object): Integer
+  + sumar(ArregloListaInfoEstaticaNumeros): boolean
+  + porEscalar(Number): boolean
+  + esOrtogonal(ArregloListaInfoEstaticaNumeros): boolean
+  + sumarIndices(ArregloListaInfoEstaticaNumeros): Double
+}
+class ArregloListaInfoEstaticaOrden {
+  + ArregloListaInfoEstaticaOrden(int, TipoDeOrden): 
+  + nuevo(Object): Integer
+  + buscar(Object): Integer
+  + eliminar(Object): Object
+}
+class Asignatura {
+  + Asignatura(String, String, int): 
+  + getClave(): String
+  + getNombre(): String
+  + getCreditos(): int
+  + setClave(String): void
+  + toString(): String
+  + setNombre(String): void
+  + setCreditos(int): void
+}
+class AudioFileRecord {
+  + AudioFileRecord(String): 
+  + convertirBufferAArregloNumerico(): ArregoListaInfoEstaticaNumeros
+  + convertirArregloNumericoABuffer(ArregoListaInfoEstaticaNumeros): void
+  + leerAudio(): void
+  + EscribirAudio(): void
+}
+class Boleta {
+  + Boleta(String, int): 
+  + agregarAsignatura(Asignatura, double): boolean
+  + mostrar(): void
+  + promedio(): Double
+}
+class Calificaciones {
+  + Calificaciones(): 
+}
+class Ciclista {
+  + Ciclista(int, String, int, String): 
+  + getEdad(): int
+  + setEdad(int): void
+  + setPais(String): void
+  + getPais(): String
+  + setNombre(String): void
+  + toString(): String
+  + setClaveCiclista(int): void
+  + getClaveCiclista(): int
+  + getNombre(): String
+}
+class Escuela {
+  + Escuela(String, String, int): 
+  + agregarAlumno(Alumno, Boleta): boolean
+  + kardex(String): void
+}
+class Evento {
+  + Evento(String, String, String): 
+  + getNombre(): String
+  + getFecha(): String
+  + setNombre(String): void
+  + toString(): String
+  + setFecha(String): void
+  + getLugar(): String
+  + setLugar(String): void
+}
+class FlujoEntrada {
+  + FlujoEntrada(): 
+  + consolaCadenas(): String
+  + consolaDouble(): Double
+}
+class FlujoSalida {
+  + FlujoSalida(): 
+  + mostrarConsola(String): void
+}
+enum IOState << enumeration >> {
+  + IOState(): 
+  + values(): IOState[]
+  + valueOf(String): IOState
+}
+class IndicesCubo {
+  + IndicesCubo(): 
+  + setIndiceX(int): void
+  + getIndiceZ(): int
+  + setIndiceZ(int): void
+  + getIndiceY(): int
+  + getIndiceX(): int
+  + setIndiceY(int): void
+}
+class PilaInfoEstatica {
+  + PilaInfoEstatica(int): 
+  + quitar(): Object
+  + poner(Object): boolean
+  + vacio(): boolean
+  + mostrar(): void
+  + lleno(): boolean
+}
+class PruebaArregloEstatico {
+  + PruebaArregloEstatico(): 
+  + main(String[]): void
+}
+class PruebaArregloEstatico2 {
+  + PruebaArregloEstatico2(): 
+  + main(String[]): void
+}
+class PruebaCiclista {
+  + PruebaCiclista(): 
+  + main(String[]): void
+}
+class PruebaEscuela {
+  + PruebaEscuela(): 
+  + main(String[]): void
+}
+class PruebaMatriz3 {
+  + PruebaMatriz3(): 
+  + main(String[]): void
+}
+class PruebaPila {
+  + PruebaPila(): 
+  + main(String[]): void
+}
+enum TipoDeOrden << enumeration >> {
+  + TipoDeOrden(): 
+  + values(): TipoDeOrden[]
+  + valueOf(String): TipoDeOrden
+}
+class UtileriasVarias {
+  + UtileriasVarias(): 
+  + compararObjetos(Object, Object): int
+}
+interface VectorArregloDatos << interface >> {
+  + cambiarTamanio(int): Boolean
+  + dato(int): Object
+  + aplicarPotencia(Number): boolean
+  + modificar(Object, Object): boolean
+  + cambiar(int, Object): Boolean
+  + porEscalar(Number): boolean
+  + modificar(ArregloListaInfoEstatica, ArregloListaInfoEstatica): Boolean
+  + tamanio(): int
+  + lleno(): boolean
+  + numDatos(): int
+  + quitar(int): Object
+  + sumarEscalar(Number): boolean
+}
+class WavFile {
+  - WavFile(): 
+  + writeFrames(double[], int): int
+  + readFrames(long[][], int, int): int
+  + display(): void
+  + getSampleRate(): long
+  + readFrames(int[], int, int): int
+  + close(): void
+  + readFrames(long[], int, int): int
+  + main(String[]): void
+  + display(PrintStream): void
+  + getFramesRemaining(): long
+  + readFrames(int[][], int, int): int
+  + writeFrames(int[], int): int
+  + writeFrames(long[][], int): int
+  - putLE(long, byte[], int, int): void
+  + readFrames(int[], int): int
+  + readFrames(long[], int): int
+  + openWavFile(File): WavFile
+  + readFrames(double[][], int): int
+  + writeFrames(int[][], int): int
+  + readFrames(double[], int): int
+  - writeSample(long): void
+  + writeFrames(long[], int, int): int
+  + newWavFile(File, int, long, int, long): WavFile
+  + getNumFrames(): long
+  + readFrames(double[], int, int): int
+  + writeFrames(double[], int, int): int
+  + writeFrames(double[][], int): int
+  + readFrames(double[][], int, int): int
+  + readFrames(int[][], int): int
+  + writeFrames(int[][], int, int): int
+  - getLE(byte[], int, int): long
+  + writeFrames(int[], int, int): int
+  + writeFrames(long[], int): int
+  - readSample(): long
+  + getValidBits(): int
+  + getNumChannels(): int
+  + writeFrames(long[][], int, int): int
+  + readFrames(long[][], int): int
+  + writeFrames(double[][], int, int): int
+}
+class WavFileException {
+  + WavFileException(String): 
+  + WavFileException(String, Throwable): 
+  + WavFileException(): 
+  + WavFileException(Throwable): 
+}
+
+AdministracionEventosCiclismo   "1" *-[#595959,plain]-> "ciclistas\n1" ArregloListaInfoEstatica        
+AdministracionEventosCiclismo    -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+AdministracionEventosCiclismo    -[#595959,dashed]->  ArregloListaInfoEstatica3       : "«create»"
+AdministracionEventosCiclismo   "1" *-[#595959,plain]-> "kilometros\n1" ArregloListaInfoEstatica3       
+AdministracionEventosCiclismo    -[#595959,dashed]->  IndicesCubo                     : "«create»"
+ArregloListaInfoEstatica         -[#008200,dashed]-^  VectorArregloDatos              
+ArregloListaInfoEstaticaNumeros  -[#000082,plain]-^  ArregloListaInfoEstatica        
+ArregloListaInfoEstaticaNumeros  -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+ArregloListaInfoEstaticaOrden    -[#000082,plain]-^  ArregloListaInfoEstatica        
+ArregloListaInfoEstaticaOrden   "1" *-[#595959,plain]-> "orden\n1" TipoDeOrden                     
+AudioFileRecord                 "1" *-[#595959,plain]-> "wavFileR\n1" WavFile                         
+Boleta                           -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+Boleta                          "1" *-[#595959,plain]-> "asignaturas\n1" ArregloListaInfoEstatica        
+Escuela                          -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+Escuela                         "1" *-[#595959,plain]-> "alumnos\n1" ArregloListaInfoEstatica        
+IOState                          +-[#820000,plain]-  WavFile                         
+PilaInfoEstatica                 -[#008200,dashed]-^  AlmacenInfo                     
+PilaInfoEstatica                "1" *-[#595959,plain]-> "pila\n1" ArregloListaInfoEstatica        
+PilaInfoEstatica                 -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+PruebaArregloEstatico            -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+PruebaArregloEstatico            -[#595959,dashed]->  ArregloListaInfoEstaticaNumeros : "«create»"
+PruebaArregloEstatico2           -[#595959,dashed]->  ArregloListaInfoEstatica2       : "«create»"
+PruebaCiclista                   -[#595959,dashed]->  AdministracionEventosCiclismo   : "«create»"
+PruebaCiclista                   -[#595959,dashed]->  ArregloListaInfoEstatica        : "«create»"
+PruebaCiclista                   -[#595959,dashed]->  Ciclista                        : "«create»"
+PruebaCiclista                   -[#595959,dashed]->  Evento                          : "«create»"
+PruebaEscuela                    -[#595959,dashed]->  Alumno                          : "«create»"
+PruebaEscuela                    -[#595959,dashed]->  Asignatura                      : "«create»"
+PruebaEscuela                    -[#595959,dashed]->  Boleta                          : "«create»"
+PruebaEscuela                    -[#595959,dashed]->  Escuela                         : "«create»"
+PruebaMatriz3                    -[#595959,dashed]->  ArregloListaInfoEstatica3       : "«create»"
+PruebaPila                       -[#595959,dashed]->  PilaInfoEstatica                : "«create»"
+TipoDeOrden                      +-[#820000,plain]-  ArregloListaInfoEstaticaOrden   
+VectorArregloDatos               -[#008200,plain]-^  ArregloListaDatos               
+WavFile                         "1" *-[#595959,plain]-> "ioState\n1" IOState                         
+WavFile                          -[#595959,dashed]->  WavFileException                : "«create»"
+@enduml
