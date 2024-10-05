@@ -433,5 +433,24 @@ public class ArregloListaInfoEstatica implements VectorArregloDatos{
     public boolean esParalelo(ArregloListaInfoEstaticaNumeros arreglo2) {
         return true;
     }
+
+    @Override
+    public Integer nuevoInicio(Object valor) {
+        return 0;
+    }
+
+    @Override
+    public Object quitarInicio() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Object buscarObjeto(Object valor) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarObjeto'");
+    }
+
+    
     
 }

@@ -1,5 +1,6 @@
 package estructurasdnolineales;
 
+import entradasalida.FlujoSalida;
 import estructurasdlineales.ArregloListaInfoEstaticaNumeros;
 
 public class ArregloListaInfoEstatica2Numeros extends ArregloListaInfoEstatica2 {
@@ -10,22 +11,46 @@ public class ArregloListaInfoEstatica2Numeros extends ArregloListaInfoEstatica2 
 
     public ArregloListaInfoEstatica2Numeros(int filas, int cols) {
         super(filas, cols);
-        super.llenar(0.0);
+        this.filas = filas;
+        this.columnas = cols;
+        arreglo = new Object[filas][cols];
+        this.llenar(0.0);
     }
 
     public ArregloListaInfoEstatica2Numeros(int filas, int cols, Object valor) {
         super(filas, cols);
+        this.filas = filas;
+        this.columnas = cols;
+        arreglo = new Object[filas][cols];
 
         // validar que el valor sea Number
         if (valor instanceof Number) {
             double valorNum = ((Number) valor).doubleValue();
-            super.llenar(valorNum);
+            this.llenar(valorNum);
         }
     }
 
-    @Override
+    public void llenar(Object valor) {
+        // iterar cada fila de la matríz
+        for (int cadaFila = 0; cadaFila < filas; cadaFila++) {
+            for (int cadaElemento = 0; cadaElemento < columnas; cadaElemento++) {
+                // llenar cada espacio de la matríz con el valor especificado
+                arreglo[cadaFila][cadaElemento] = valor;
+            }
+        }
+    }
+
     public void imprimirXRenglones() {
-        super.imprimirXRenglones();
+        // iterar cada renglón
+        for (int cadaRenglon = 0; cadaRenglon < filas; cadaRenglon++) {
+            for (int cadaElemento = 0; cadaElemento < columnas; cadaElemento++) {
+                // imprimir cada elemento del renglón
+                Object elemento = (Object)arreglo[cadaRenglon][cadaElemento];
+                FlujoSalida.mostrarConsola(elemento + "  ");
+            }
+            // salto de línea por cada renglón
+            FlujoSalida.mostrarConsola("\n");
+        }
     }
 
     public boolean porEscalar(Object escalar) {

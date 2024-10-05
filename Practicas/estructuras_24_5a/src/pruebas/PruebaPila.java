@@ -14,7 +14,7 @@ public class PruebaPila {
         pila.poner("T");
         pila.mostrar();
 
-        FlujoSalida.mostrarConsola("Eliminando algo de la pila: " + pila.quitar() + "\n");
+        FlujoSalida.mostrarConsola("Eliminando elemento de la pila: " + pila.quitar() + "\n");
 
         pila.mostrar();
     }

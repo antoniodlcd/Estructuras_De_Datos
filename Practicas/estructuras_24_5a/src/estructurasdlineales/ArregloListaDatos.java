@@ -3,10 +3,13 @@ package estructurasdlineales;
 public interface ArregloListaDatos {
     public boolean vacio();
     public Integer nuevo(Object valor);
+    public Integer nuevoInicio(Object valor);
     public void imprimir();
     public void imprimirReves();
     public Integer buscar(Object valor);
+    public Object buscarObjeto(Object valor);
     public Object quitar(Object valor);
+    public Object quitarInicio();
 
     // metodos de la practica 2
     public Boolean esIdentico(Object arreglo2); 
@@ -35,4 +38,6 @@ public interface ArregloListaDatos {
     public ArregloListaInfoEstatica subArreglo(ArregloListaInfoEstaticaNumeros arregloIndices);
     public boolean esOrtogonal(ArregloListaInfoEstaticaNumeros arreglo2);
     public boolean esParalelo(ArregloListaInfoEstaticaNumeros arreglo2);
+
+
 }

@@ -31,4 +31,5 @@ public class PilaInfoEstatica implements AlmacenInfo {
     public void mostrar() {
         pila.imprimir();
     }
+
 }

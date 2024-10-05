@@ -118,9 +118,9 @@ public class ArregloListaInfoEstatica2 {
     public void llenar(Object valor) {
         // iterar cada fila de la matríz
         for (int cadaFila = 0; cadaFila < filas; cadaFila++) {
-            for (int cadaColumna = 0; cadaColumna < columnas; cadaColumna++) {
+            for (int cadaElemento = 0; cadaElemento < columnas; cadaElemento++) {
                 // llenar cada espacio de la matríz con el valor especificado
-                arreglo[cadaFila][cadaColumna] = valor;
+                arreglo[cadaFila][cadaElemento] = valor;
             }
         }
     }

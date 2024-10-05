@@ -1,8 +1,8 @@
 package audio;
 
 import java.io.*;
-
 import audio.wavfile.*;
+import estructurasdlineales.ArregloListaInfoEstaticaNumeros;
 
 public class AudioFileRecord {
     private long numFrames;  //numero de tramas, número de muestras totales del archivo por canal
@@ -34,13 +34,13 @@ public class AudioFileRecord {
         validBits=wavFileR.getValidBits();
     }
 
-    public ArregoListaInfoEstaticaNumeros convertirBufferAArregloNumerico(){
+    // public ArregoListaInfoEstaticaNumeros convertirBufferAArregloNumerico(){
+    //     return null;
+    // }
 
-    }
+    // public void convertirArregloNumericoABuffer(ArregoListaInfoEstaticaNumeros datosAudio){
 
-    public void convertirArregloNumericoABuffer(ArregoListaInfoEstaticaNumeros datosAudio){
-
-    }
+    // }
 
     public void leerAudio() {
         try {
